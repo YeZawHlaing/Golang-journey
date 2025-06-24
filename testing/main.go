@@ -1,21 +1,15 @@
-package main
+// package main
 
-import (
-	"log"
+// import (
+// 	"log"
 
-	"github.com/gofiber/fiber/v2"
-)
+// 	"github.com/gofiber/fiber/v2"
+// )
 
-func main() {
-	// Initialize a new Fiber app
-	app := fiber.New()
+// func main() {
+// 	// Initialize a new Fiber app
+// 	app := fiber.New()
+// 	testing()
 
-	app.Get("/:name?", func(a *fiber.Ctx) error {
-		if a.Params("name") != "" {
-			return a.SendString("Hello" + a.Params("name"))
-		}
-		return a.SendString("Where is John?")
-	})
-
-	log.Fatal(app.Listen(":8080"))
-}
+// 	log.Fatal(app.Listen(":8080"))
+// }

@@ -7,15 +7,18 @@ import (
 )
 
 func main() {
+	testing()
+}
+
+func testing() {
 	// Initialize a new Fiber app
 	app := fiber.New()
 
-	app.Get("/:name?", func(a *fiber.Ctx) error {
-		if a.Params("name") != "" {
-			return a.SendString("Hello" + a.Params("name"))
-		}
-		return a.SendString("Where is John?")
+	app.Static("/", "./application")
+
+	app.Get("/api", func(c *fiber.Ctx) error {
+		return c.SendString("Hello from Fiber API!")
 	})
 
-	log.Fatal(app.Listen(":8080"))
+	log.Fatal(app.Listen(":8082"))
 }
